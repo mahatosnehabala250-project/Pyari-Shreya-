@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>I'm Sorry Shreya 🌸</title>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Kalam:wght@400;700&family=Lora:ital@1&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Kalam:wght@400;700&family=Lora:ital,wght@1,400&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     body{
@@ -68,7 +68,11 @@
       font-weight:700;color:#e05c7a;line-height:1.1;display:block;
       position:relative;z-index:1;text-shadow:0 2px 14px #f5a0b555;margin-bottom:4px;
     }
-    .sorry-tagline{font-family:'Lora',serif;font-style:italic;font-size:clamp(.78rem,3vw,.9rem);color:#9a6070;display:block;position:relative;z-index:1;margin-bottom:12px;}
+    .sorry-tagline{
+      font-family:'Lora',serif;font-style:italic;
+      font-size:clamp(.78rem,3vw,.9rem);color:#9a6070;
+      display:block;position:relative;z-index:1;margin-bottom:12px;
+    }
     .hdivider{display:flex;align-items:center;justify-content:center;gap:8px;position:relative;z-index:1;}
     .hdivider .ln{display:block;height:1px;width:55px;background:linear-gradient(to right,transparent,#f5a0b5aa)}
     .hdivider .ln.r{background:linear-gradient(to left,transparent,#f5a0b5aa)}
@@ -78,31 +82,39 @@
     /* BODY */
     .body{padding:20px 18px 22px}
 
-    .msg{
-      font-size:clamp(.9rem,3.5vw,1rem);color:#3a1f28;line-height:2;
-      background:#fdeef2;border-radius:16px;padding:18px 18px;
-      margin-bottom:16px;border-left:3px solid #f5a0b5;
-      text-align:center;word-break:break-word;
+    /* Emotional letter style */
+    .letter{
+      font-size:clamp(.9rem,3.6vw,1rem);
+      color:#3a1f28;line-height:2.1;
+      text-align:center;
+      word-break:break-word;
+      margin-bottom:18px;
     }
+
+    .letter-para{
+      background:#fdeef2;border-radius:16px;
+      padding:18px 18px;margin-bottom:12px;
+      border-left:3px solid #f5a0b5;
+    }
+
+    .letter-para.soft{
+      background:#fff5f8;
+      border-left:3px solid #f9c6ce;
+      font-style:italic;
+      color:#6b3040;
+    }
+
+    .highlight{color:#e05c7a;font-weight:700;}
+
     .sorry-text{
       font-size:clamp(.96rem,3.8vw,1.08rem);font-weight:700;color:#e05c7a;
-      display:block;margin:10px 0 6px;line-height:1.5;
+      display:block;margin:8px 0 4px;line-height:1.6;
       animation:pc 2.5s ease-in-out infinite;
     }
     @keyframes pc{0%,100%{color:#e05c7a}50%{color:#a83558}}
 
-    /* single personal note */
-    .personal-note{
-      background:#fff5f8;border-radius:14px;
-      padding:14px 16px;margin-bottom:18px;
-      border:1.5px solid #f5c0ce;
-      font-size:clamp(.84rem,3.3vw,.94rem);
-      color:#5a2a38;line-height:1.85;text-align:center;
-    }
-    .personal-note .highlight{color:#e05c7a;font-weight:700;}
-
     /* BUTTONS */
-    .btns{display:flex;flex-direction:column;align-items:center;position:relative;min-height:130px;}
+    .btns{display:flex;flex-direction:column;align-items:center;position:relative;min-height:130px;margin-top:6px;}
     .btn-yes{
       background:linear-gradient(135deg,#e05c7a,#c94a68);color:#fff;
       border:none;border-radius:50px;padding:15px 0;
@@ -125,9 +137,13 @@
     .success.show{display:flex}
     .s-emoji{font-size:58px;animation:sb .5s ease-in-out 4}
     @keyframes sb{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
-    .s-msg{font-family:'Dancing Script',cursive;font-size:clamp(1.45rem,6vw,1.85rem);color:#e05c7a;font-weight:700}
-    .s-sub{color:#9a6070;font-size:clamp(.86rem,3.4vw,.98rem);line-height:1.7}
-    .s-note{font-size:clamp(.76rem,3vw,.86rem);color:#b8909a;line-height:1.7}
+    .s-msg{font-family:'Dancing Script',cursive;font-size:clamp(1.5rem,6vw,1.9rem);color:#e05c7a;font-weight:700}
+    .s-note{
+      font-size:clamp(.86rem,3.4vw,.96rem);
+      color:#9a6070;line-height:1.9;
+      background:#fdeef2;border-radius:14px;
+      padding:14px 16px;width:100%;
+    }
 
     .cp{position:fixed;width:8px;height:8px;opacity:0;pointer-events:none;animation:cf 1.6s ease-out forwards;z-index:9998}
     @keyframes cf{0%{transform:translateY(0) rotate(0) scale(1);opacity:1}100%{transform:translateY(260px) rotate(540deg) scale(.2);opacity:0}}
@@ -187,37 +203,58 @@
   <div class="body">
     <div id="apologySection">
 
-      <div class="msg">
-        Shreya, pata hai maine galat kiya.<br/>
-        Tumhare dil ko takleef pahunchi —<br/>
-        woh meri galti thi, tumhari nahi.<br/><br/>
-        <span class="sorry-text" id="sorryText">Dil se maafi mangta hoon. 🙏</span>
-        Koi pressure nahi, koi jaldi nahi.<br/>
-        Bas maaf kar do ek baar... please? 🥺
-      </div>
+      <div class="letter">
 
-      <!-- ONE personal note — only what truly matters -->
-      <div class="personal-note">
-        ⚖️ Tumhara sapna hai ek <span class="highlight">advocate banana</span> —<br/>
-        itni caring aur soft ho tum andar se...<br/>
-        aisa dil hurt kiya maine — yeh sochke<br/>
-        <span class="highlight">bahut bura lagta hai. 🤍</span><br/><br/>
-        Tumhara trust mujhe wapis chahiye —<br/>
-        chahe kitna bhi waqt lage. ☕
+        <div class="letter-para">
+          Shreya...<br/>
+          pata hai yeh padhna bhi<br/>
+          mushkil hoga tumhare liye.<br/>
+          Aur main samajhta hoon. 🥺
+        </div>
+
+        <div class="letter-para">
+          Maine tumhara <span class="highlight">dil hurt kiya.</span><br/>
+          Tumhara trust toda.<br/>
+          Yeh sirf meri galti thi —<br/>
+          isme tumhari koi galti nahi.
+        </div>
+
+        <div class="letter-para soft">
+          Tum bahut soft ho andar se,<br/>
+          bahut caring ho —<br/>
+          aur aisa dil rakhne wali ko<br/>
+          <span class="highlight">maine dard diya.</span><br/>
+          Yeh sochke aaj bhi bura lagta hai. 💔
+        </div>
+
+        <div class="letter-para">
+          <span class="sorry-text" id="sorryText">
+            Dil se maafi mangta hoon. 🙏
+          </span>
+          Koi pressure nahi,<br/>
+          koi umeed nahi —<br/>
+          bas yeh jaano ki<br/>
+          <span class="highlight">tum mujhe yaad ho.</span><br/>
+          Hamesha. 🌸
+        </div>
+
       </div>
 
       <div class="btns" id="btnContainer">
         <button class="btn-yes" onclick="handleYes()">💖 Maaf kar diya</button>
         <button class="btn-no" id="noBtn">😤 Nahi maaf karunga</button>
       </div>
+
     </div>
 
     <div class="success" id="successSection">
       <div class="s-emoji">🥰</div>
-      <div class="s-msg">Shukriya Shreya! 💕</div>
-      <div class="s-sub">
-        Tum bahut achhi ho... ❤️<br/>
-        Waada hai — ab dhyan rakhunga. 🌸
+      <div class="s-msg">Shukriya Shreya... 💕</div>
+      <div class="s-note">
+        Tumne maaf kiya —<br/>
+        yeh tumhari achhai hai, meri kamaai nahi.<br/><br/>
+        <span style="color:#e05c7a;font-weight:700;">Waada hai</span> —<br/>
+        aage se kabhi yeh naubat nahi aayegi. 🌸
       </div>
     </div>
   </div>
@@ -240,13 +277,14 @@
     "Dil se maafi mangta hoon. 🙏",
     "Sacchi mein bahut bura lag raha hai... please? 🥺",
     "Baar baar maafi maangunga jab tak maaf na karo! 😢",
-    "Tum maaf kar do, main sudhar jaaunga... pakka! 💝",
+    "Tum maaf kar do, sudhar jaaunga... pakka! 💝",
     "Ek baar... bas ek baar maaf kar do Shreya... 🌸"
   ];
 
   function runAway(){
     attempts++;
-    document.getElementById('sorryText').textContent=sorryTexts[Math.min(attempts,sorryTexts.length-1)];
+    document.getElementById('sorryText').textContent=
+      sorryTexts[Math.min(attempts,sorryTexts.length-1)];
     const cw=container.offsetWidth,ch=container.offsetHeight;
     const bw=noBtn.offsetWidth,bh=noBtn.offsetHeight;
     noBtn.style.bottom='auto';noBtn.style.transform='none';
