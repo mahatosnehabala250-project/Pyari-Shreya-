@@ -114,7 +114,7 @@
     @keyframes pc{0%,100%{color:#e05c7a}50%{color:#a83558}}
 
     /* BUTTONS */
-    .btns{display:flex;flex-direction:column;align-items:center;position:relative;min-height:130px;margin-top:6px;}
+    .btns{display:flex;flex-direction:column;align-items:center;position:relative;min-height:180px;margin-top:6px;padding-bottom:12px;}
     .btn-yes{
       background:linear-gradient(135deg,#e05c7a,#c94a68);color:#fff;
       border:none;border-radius:50px;padding:15px 0;
@@ -128,7 +128,7 @@
       background:#f5f5f5;color:#999;border:2px dashed #ddd;border-radius:50px;
       padding:12px 28px;font-family:'Kalam',cursive;
       font-size:clamp(.86rem,3.5vw,.96rem);
-      cursor:pointer;position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+      cursor:pointer;position:absolute;bottom:10px;left:50%;transform:translateX(-50%);
       white-space:nowrap;user-select:none;-webkit-user-select:none;touch-action:none;z-index:3;
     }
 
@@ -205,130 +205,3 @@
 
       <div class="letter">
 
-        <div class="letter-para">
-          Shreya...<br/>
-          pata hai yeh padhna bhi<br/>
-          mushkil hoga tumhare liye.<br/>
-          Aur main samajhta hoon. 🥺
-        </div>
-
-        <div class="letter-para">
-          Maine tumhara <span class="highlight">dil hurt kiya.</span><br/>
-          Tumhara trust toda.<br/>
-          Yeh sirf meri galti thi —<br/>
-          isme tumhari koi galti nahi.
-        </div>
-
-        <div class="letter-para soft">
-          Tum bahut soft ho andar se,<br/>
-          bahut caring ho —<br/>
-          aur aisa dil rakhne wali ko<br/>
-          <span class="highlight">maine dard diya.</span><br/>
-          Yeh sochke aaj bhi bura lagta hai. 💔
-        </div>
-
-        <div class="letter-para">
-          <span class="sorry-text" id="sorryText">
-            Dil se maafi mangta hoon. 🙏
-          </span>
-          Koi pressure nahi,<br/>
-          koi umeed nahi —<br/>
-          bas yeh jaano ki<br/>
-          <span class="highlight">tum mujhe yaad ho.</span><br/>
-          Hamesha. 🌸
-        </div>
-
-      </div>
-
-      <div class="btns" id="btnContainer">
-        <button class="btn-yes" onclick="handleYes()">💖 Maaf kar diya</button>
-        <button class="btn-no" id="noBtn">😤 Nahi maaf karunga</button>
-      </div>
-
-    </div>
-
-    <div class="success" id="successSection">
-      <div class="s-emoji">🥰</div>
-      <div class="s-msg">Shukriya Shreya... 💕</div>
-      <div class="s-note">
-        Tumne maaf kiya —<br/>
-        yeh tumhari achhai hai, meri kamaai nahi.<br/><br/>
-        <span style="color:#e05c7a;font-weight:700;">Waada hai</span> —<br/>
-        aage se kabhi yeh naubat nahi aayegi. 🌸
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-  for(let i=0;i<14;i++){
-    const p=document.createElement('div');p.className='petal';
-    p.style.left=Math.random()*100+'vw';
-    p.style.animationDuration=(6+Math.random()*8)+'s';
-    p.style.animationDelay=(Math.random()*12)+'s';
-    document.getElementById('petals').appendChild(p);
-  }
-
-  const noBtn=document.getElementById('noBtn');
-  const container=document.getElementById('btnContainer');
-  let attempts=0;
-
-  const sorryTexts=[
-    "Dil se maafi mangta hoon. 🙏",
-    "Sacchi mein bahut bura lag raha hai... please? 🥺",
-    "Baar baar maafi maangunga jab tak maaf na karo! 😢",
-    "Tum maaf kar do, sudhar jaaunga... pakka! 💝",
-    "Ek baar... bas ek baar maaf kar do Shreya... 🌸"
-  ];
-
-  function runAway(){
-    attempts++;
-    document.getElementById('sorryText').textContent=
-      sorryTexts[Math.min(attempts,sorryTexts.length-1)];
-    const cw=container.offsetWidth,ch=container.offsetHeight;
-    const bw=noBtn.offsetWidth,bh=noBtn.offsetHeight;
-    noBtn.style.bottom='auto';noBtn.style.transform='none';
-    noBtn.style.left=(4+Math.random()*Math.max(cw-bw-8,4))+'px';
-    noBtn.style.top=(Math.random()*Math.max(ch-bh-4,0))+'px';
-  }
-
-  noBtn.addEventListener('mouseenter',runAway);
-  noBtn.addEventListener('touchstart',e=>{e.preventDefault();runAway();},{passive:false});
-  noBtn.addEventListener('click',e=>{e.preventDefault();runAway();});
-
-  function handleYes(){
-    burstHearts();launchConfetti();
-    setTimeout(()=>{
-      document.getElementById('apologySection').style.display='none';
-      document.getElementById('successSection').classList.add('show');
-    },400);
-  }
-
-  function burstHearts(){
-    const list=['💖','💕','🌸','💗','✨','🥰','💝','🌹'];
-    const r=document.querySelector('.btn-yes').getBoundingClientRect();
-    for(let i=0;i<14;i++){
-      const h=document.createElement('div');h.className='hb';
-      h.textContent=list[Math.floor(Math.random()*list.length)];
-      h.style.left=(r.left+20+Math.random()*(r.width-40))+'px';
-      h.style.top=(r.top+8+Math.random()*16)+'px';
-      h.style.animationDelay=(Math.random()*.4)+'s';
-      document.body.appendChild(h);setTimeout(()=>h.remove(),1600);
-    }
-  }
-
-  function launchConfetti(){
-    const cols=['#e05c7a','#f5a0b5','#d4956a','#f9c6ce','#c94a68','#ffd6e0'];
-    for(let i=0;i<50;i++){
-      const c=document.createElement('div');c.className='cp';
-      c.style.background=cols[Math.floor(Math.random()*cols.length)];
-      c.style.left=(5+Math.random()*90)+'vw';
-      c.style.top=(10+Math.random()*50)+'vh';
-      c.style.borderRadius=Math.random()>.5?'50%':'2px';
-      c.style.animationDelay=(Math.random()*.6)+'s';
-      document.body.appendChild(c);setTimeout(()=>c.remove(),2200);
-    }
-  }
-</script>
-</body>
-</html>
