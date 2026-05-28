@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maafi 🌸</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --rose: #e8637a;
+      --rose-light: #f5a0af;
+      --rose-pale: #fde8ec;
+      --cream: #fff8f5;
+      --ink: #3a1f28;
+      --ink-soft: #7a4f5a;
+      --gold: #d4956a;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--cream);
+      font-family: 'Kalam', cursive;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Petals floating */
+    .petal {
+      position: fixed;
+      width: 12px;
+      height: 18px;
+      background: radial-gradient(ellipse at 40% 30%, #f9c6ce, #e8637a88);
+      border-radius: 50% 0 50% 0;
+      opacity: 0;
+      animation: fall linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      0%   { transform: translateY(-40px) rotate(0deg) translateX(0); opacity: 0; }
+      10%  { opacity: 0.7; }
+      80%  { opacity: 0.5; }
+      100% { transform: translateY(110vh) rotate(720deg) translateX(40px); opacity: 0; }
+    }
+
+    /* Card */
+    .card {
+      background: white;
+      border-radius: 28px;
+      padding: 48px 44px 44px;
+      max-width: 480px;
+      width: 92vw;
+      text-align: center;
+      box-shadow:
+        0 4px 6px #e8637a18,
+        0 20px 60px #e8637a22,
+        0 0 0 1px #f5a0af44;
+      position: relative;
+      z-index: 10;
+      animation: cardIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    }
+
+    @keyframes cardIn {
+      from { transform: scale(0.7) translateY(30px); opacity: 0; }
+      to   { transform: scale(1) translateY(0); opacity: 1; }
+    }
+
+    .emoji-top {
+      font-size: 52px;
+      display: block;
+      margin-bottom: 6px;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-8px); }
+    }
+
+    .title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--rose);
+      margin-bottom: 6px;
+      font-style: italic;
+    }
+
+    .subtitle {
+      font-size: 0.85rem;
+      color: var(--ink-soft);
+      letter-spacing: 0.06em;
+      margin-bottom: 28px;
+    }
+
+    .message {
+      font-size: 1.05rem;
+      color: var(--ink);
+      line-height: 1.9;
+      background: var(--rose-pale);
+      border-radius: 16px;
+      padding: 20px 22px;
+      margin-bottom: 30px;
+      border-left: 3px solid var(--rose-light);
+    }
+
+    .sorry-text {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--rose);
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 4px;
+      animation: pulse-color 2.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse-color {
+      0%, 100% { color: var(--rose); }
+      50%       { color: var(--gold); }
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+
+    .btn-yes {
+      background: linear-gradient(135deg, var(--rose), #c74b62);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 14px 32px;
+      font-family: 'Kalam', cursive;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 18px #e8637a55;
+      transition: transform 0.15s, box-shadow 0.15s;
+      position: relative;
+      z-index: 2;
+    }
+
+    .btn-yes:hover {
+      transform: scale(1.07);
+      box-shadow: 0 6px 24px #e8637a77;
+    }
+
+    .btn-yes:active {
+      transform: scale(0.97);
+    }
+
+    .btn-no {
+      background: #f0f0f0;
+      color: #999;
+      border: 2px dashed #ddd;
+      border-radius: 50px;
+      padding: 14px 28px;
+      font-family: 'Kalam', cursive;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: left 0.05s, top 0.05s;
+      position: fixed;
+      z-index: 9999;
+      white-space: nowrap;
+    }
+
+    /* Success screen */
+    .success-screen {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+    }
+
+    .success-screen.show {
+      display: flex;
+    }
+
+    .success-emoji {
+      font-size: 64px;
+      animation: heartbeat 0.6s ease-in-out 3;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50%       { transform: scale(1.2); }
+    }
+
+    .success-msg {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--rose);
+      font-style: italic;
+    }
+
+    .success-sub {
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+
+    /* Confetti */
+    .confetti-piece {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      opacity: 0;
+      pointer-events: none;
+      animation: confettiFall 1.5s ease-out forwards;
+      z-index: 9998;
+    }
+
+    @keyframes confettiFall {
+      0%   { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
+      100% { transform: translateY(220px) rotate(540deg) scale(0.3); opacity: 0; }
+    }
+
+    .hearts-burst {
+      position: fixed;
+      font-size: 22px;
+      pointer-events: none;
+      animation: heartBurst 1.2s ease-out forwards;
+      z-index: 9999;
+    }
+
+    @keyframes heartBurst {
+      0%   { transform: scale(0) translateY(0); opacity: 1; }
+      60%  { opacity: 1; }
+      100% { transform: scale(1.5) translateY(-80px); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Floating petals -->
+<div id="petals"></div>
+
+<div class="card" id="mainCard">
+
+  <!-- Apology section -->
+  <div id="apologySection">
+    <span class="emoji-top" id="topEmoji">🥺</span>
+    <h1 class="title" id="mainTitle">Maafi Maango?</h1>
+    <p class="subtitle">ek chhoti si request hai...</p>
+
+    <div class="message">
+      Pata hai maine galat kiya.<br/>
+      Tumhare dil ko takleef pahunchi — woh meri galti thi.<br/>
+      <span class="sorry-text" id="sorryText">Dil se maafi mangta hoon. 🙏</span>
+      Bas ek baar maaf kar do... please?
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-yes" id="yesBtn" onclick="handleYes()">💖 Maaf kar diya</button>
+      <button class="btn-no" id="noBtn" onmouseenter="runAway()" ontouchstart="runAway()">Nahi maafunga 😤</button>
+    </div>
+  </div>
+
+  <!-- Success section -->
+  <div class="success-screen" id="successSection">
+    <div class="success-emoji">🥰</div>
+    <div class="success-msg">Shukriya Shreya! 💕</div>
+    <div class="success-sub">Tum bahut achhi ho...&nbsp;❤️</div>
+    <div style="font-size:0.85rem; color:var(--ink-soft); margin-top:8px;">Waada hai — aage se dhyan rakhunga. 🌸</div>
+  </div>
+
+</div>
+
+<script>
+  /* ── Petals ── */
+  const petalContainer = document.getElementById('petals');
+  for (let i = 0; i < 18; i++) {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.animationDuration = (5 + Math.random() * 8) + 's';
+    p.style.animationDelay = (Math.random() * 10) + 's';
+    p.style.transform = `rotate(${Math.random()*60}deg)`;
+    p.style.opacity = '0';
+    petalContainer.appendChild(p);
+  }
+
+  /* ── "No" button run-away ── */
+  let noClickAttempts = 0;
+
+  const sorryTexts = [
+    "Dil se maafi mangta hoon. 🙏",
+    "Sacchi mein bahut bura lag raha hai... please? 🥺",
+    "Baar baar maafi maangunga jab tak maaf na karo! 😢",
+    "Tum maaf kar do, main sudhar jaaunga... pakka! 💝",
+    "Ek baar... bas ek baar maaf kar do Shreya... 🌸"
+  ];
+
+  const titleTexts = [
+    "Maafi Maango?",
+    "Please... Maaf Karo? 🙏",
+    "Abhi Bhi Soch Rahi Ho? 🥺",
+    "Maaf Karo Na Yaar...",
+    "Last Chance... Please? 💕"
+  ];
+
+  function runAway() {
+    noClickAttempts++;
+    const btn = document.getElementById('noBtn');
+
+    // Update text with growing desperation
+    if (noClickAttempts <= 4) {
+      document.getElementById('sorryText').textContent = sorryTexts[Math.min(noClickAttempts, sorryTexts.length - 1)];
+      document.getElementById('mainTitle').textContent = titleTexts[Math.min(noClickAttempts, titleTexts.length - 1)];
+    }
+
+    // Move button to random position (avoid edges and yes button)
+    const margin = 80;
+    const maxX = window.innerWidth - margin - 120;
+    const maxY = window.innerHeight - margin - 60;
+    const x = margin + Math.random() * maxX;
+    const y = margin + Math.random() * maxY;
+
+    btn.style.left = x + 'px';
+    btn.style.top  = y + 'px';
+  }
+
+  /* Position "No" button initially (center-ish) */
+  window.addEventListener('load', () => {
+    const btn = document.getElementById('noBtn');
+    btn.style.left = (window.innerWidth / 2 + 20) + 'px';
+    btn.style.top  = (document.getElementById('mainCard').getBoundingClientRect().bottom - 70) + 'px';
+  });
+
+  /* ── Yes button ── */
+  function handleYes() {
+    // Burst hearts
+    burstHearts();
+    launchConfetti();
+
+    setTimeout(() => {
+      document.getElementById('apologySection').style.display = 'none';
+      document.getElementById('noBtn').style.display = 'none';
+      document.getElementById('successSection').classList.add('show');
+    }, 500);
+  }
+
+  function burstHearts() {
+    const emojis = ['💖','💕','🌸','💗','✨','🥰','💝'];
+    const btn = document.getElementById('yesBtn');
+    const rect = btn.getBoundingClientRect();
+    for (let i = 0; i < 12; i++) {
+      const h = document.createElement('div');
+      h.className = 'hearts-burst';
+      h.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      h.style.left = (rect.left + Math.random() * rect.width) + 'px';
+      h.style.top  = (rect.top + Math.random() * rect.height) + 'px';
+      h.style.animationDelay = (Math.random() * 0.3) + 's';
+      document.body.appendChild(h);
+      setTimeout(() => h.remove(), 1500);
+    }
+  }
+
+  function launchConfetti() {
+    const colors = ['#e8637a','#f5a0af','#d4956a','#f9c6ce','#c74b62'];
+    for (let i = 0; i < 40; i++) {
+      const c = document.createElement('div');
+      c.className = 'confetti-piece';
+      c.style.background = colors[Math.floor(Math.random() * colors.length)];
+      c.style.left = (10 + Math.random() * 80) + 'vw';
+      c.style.top  = (20 + Math.random() * 40) + 'vh';
+      c.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+      c.style.animationDelay = (Math.random() * 0.5) + 's';
+      document.body.appendChild(c);
+      setTimeout(() => c.remove(), 2000);
+    }
+  }
+</script>
+</body>
+</html>
