@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>I'm Sorry 🌸</title>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Kalam:wght@400;700&family=Lora:ital,wght@1,400;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Kalam:wght@400;700&family=Lora:ital,wght@1,400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -22,11 +22,11 @@
       background: linear-gradient(160deg, #fff0f4 0%, #fff9f6 55%, #f3faf5 100%);
       font-family: 'Kalam', cursive;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
       overflow-x: hidden;
       overflow-y: auto;
-      padding: 24px 16px;
+      padding: 20px 14px 100px;
     }
 
     /* Petals */
@@ -51,7 +51,7 @@
     .card {
       background: white;
       border-radius: 28px;
-      padding: 0 0 36px;
+      padding: 0 0 32px;
       max-width: 420px;
       width: 100%;
       text-align: center;
@@ -66,120 +66,153 @@
       to   { transform: scale(1) translateY(0); opacity:1; }
     }
 
-    /* ── HEADER BANNER ── */
+    /* HEADER */
     .header-banner {
       position: relative;
       width: 100%;
-      padding: 38px 28px 30px;
+      padding: 30px 24px 26px;
       background: linear-gradient(145deg, #fce4ec, #ffd6e4, #ffeef2);
       overflow: hidden;
     }
     .header-banner::before {
-      content: '';
-      position: absolute;
-      width: 200px; height: 200px;
-      border-radius: 50%;
-      background: radial-gradient(circle, #f9b8cb55, transparent 70%);
-      top: -70px; right: -60px;
+      content:'';
+      position:absolute; width:200px; height:200px; border-radius:50%;
+      background:radial-gradient(circle,#f9b8cb55,transparent 70%);
+      top:-70px; right:-60px;
     }
     .header-banner::after {
-      content: '';
-      position: absolute;
-      width: 130px; height: 130px;
+      content:'';
+      position:absolute; width:130px; height:130px; border-radius:50%;
+      background:radial-gradient(circle,#f9b8cb44,transparent 70%);
+      bottom:-40px; left:-30px;
+    }
+
+    /* Puppy image */
+    .puppy-wrap {
+      position: relative;
+      z-index: 2;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+    .puppy-circle {
+      width: 110px; height: 110px;
       border-radius: 50%;
-      background: radial-gradient(circle, #f9b8cb44, transparent 70%);
-      bottom: -40px; left: -30px;
+      background: linear-gradient(135deg, #ffc8d8, #ffadc5);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 64px;
+      margin: 0 auto;
+      box-shadow: 0 6px 24px #e05c7a33;
+      animation: puppy-float 3s ease-in-out infinite;
+      border: 3px solid #fff;
+      overflow: hidden;
+    }
+    .puppy-img {
+      width: 90px; height: 90px;
+      object-fit: contain;
+    }
+    .sparkle-tl {
+      position:absolute; top:-6px; right:2px;
+      font-size: 20px;
+      animation: spin 3s linear infinite;
+    }
+    @keyframes spin {
+      0%,100%{transform:rotate(-10deg) scale(1);}
+      50%{transform:rotate(15deg) scale(1.2);}
+    }
+    @keyframes puppy-float {
+      0%,100%{transform:translateY(0);}
+      50%{transform:translateY(-7px);}
     }
 
     .flower-row {
-      font-size: 22px;
-      letter-spacing: 6px;
+      font-size: 20px;
+      letter-spacing: 5px;
       display: block;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       animation: sway 3s ease-in-out infinite;
-      position: relative;
-      z-index: 1;
+      position: relative; z-index: 1;
     }
     @keyframes sway {
-      0%,100% { transform: rotate(-2deg); }
-      50%      { transform: rotate(2deg); }
+      0%,100%{transform:rotate(-2deg);}
+      50%{transform:rotate(2deg);}
     }
 
     .sorry-headline {
       font-family: 'Dancing Script', cursive;
-      font-size: clamp(2.8rem, 12vw, 3.6rem);
+      font-size: clamp(2.6rem, 11vw, 3.4rem);
       font-weight: 700;
       color: var(--rose);
       line-height: 1.1;
       display: block;
-      position: relative;
-      z-index: 1;
+      position: relative; z-index: 1;
       text-shadow: 0 2px 16px #f5a0b566;
     }
 
     .sorry-tagline {
       font-family: 'Lora', serif;
       font-style: italic;
-      font-size: clamp(0.82rem, 3.2vw, 0.95rem);
+      font-size: clamp(0.8rem, 3vw, 0.92rem);
       color: var(--ink-soft);
-      margin-top: 8px;
+      margin-top: 6px;
       display: block;
-      position: relative;
-      z-index: 1;
-      letter-spacing: 0.03em;
+      position: relative; z-index: 1;
     }
 
     .heart-divider {
-      margin-top: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      position: relative;
-      z-index: 1;
+      margin-top: 14px;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      position: relative; z-index: 1;
     }
     .heart-divider .line {
-      display: block;
-      height: 1px; width: 65px;
-      background: linear-gradient(to right, transparent, #f5a0b5aa);
+      display:block; height:1px; width:60px;
+      background:linear-gradient(to right,transparent,#f5a0b5aa);
     }
     .heart-divider .line.right {
-      background: linear-gradient(to left, transparent, #f5a0b5aa);
+      background:linear-gradient(to left,transparent,#f5a0b5aa);
     }
-    .hd-icon { font-size: 16px; animation: hbeat 1.4s ease-in-out infinite; }
+    .hd-icon { font-size:15px; animation:hbeat 1.4s ease-in-out infinite; }
     @keyframes hbeat {
-      0%,100% { transform: scale(1); }
-      50%      { transform: scale(1.35); }
+      0%,100%{transform:scale(1);}
+      50%{transform:scale(1.35);}
     }
 
     /* Body */
-    .card-body { padding: 26px 24px 0; }
+    .card-body { padding: 22px 20px 0; }
 
     .message {
       font-size: clamp(0.88rem, 3.4vw, 0.98rem);
       color: var(--ink);
-      line-height: 1.9;
+      line-height: 1.85;
       background: var(--rose-pale);
       border-radius: 18px;
-      padding: 18px 20px;
-      margin-bottom: 26px;
+      padding: 16px 18px;
+      margin-bottom: 22px;
       border-left: 3px solid var(--rose-light);
       text-align: center;
       word-break: break-word;
     }
 
     .sorry-text {
-      font-size: clamp(0.98rem, 3.8vw, 1.1rem);
+      font-size: clamp(0.96rem, 3.8vw, 1.08rem);
       font-weight: 700;
       color: var(--rose);
       display: block;
-      margin: 10px 0 6px;
+      margin: 8px 0 5px;
       line-height: 1.5;
       animation: pulse-color 2.5s ease-in-out infinite;
     }
     @keyframes pulse-color {
-      0%,100% { color: var(--rose); }
-      50%      { color: #a83558; }
+      0%,100%{color:var(--rose);}
+      50%{color:#a83558;}
+    }
+
+    /* ── BUTTON ROW — always visible, stacked on mobile ── */
+    .btn-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 0 4px;
     }
 
     .btn-yes {
@@ -187,16 +220,14 @@
       color: white;
       border: none;
       border-radius: 50px;
-      padding: 15px 40px;
+      padding: 15px 20px;
       font-family: 'Kalam', cursive;
       font-size: clamp(1rem, 4vw, 1.1rem);
       font-weight: 700;
       cursor: pointer;
       box-shadow: 0 4px 20px #e05c7a44;
-      display: block;
       width: 100%;
-      max-width: 280px;
-      margin: 0 auto 12px;
+      max-width: 300px;
       transition: transform .15s, box-shadow .15s;
     }
     .btn-yes:hover, .btn-yes:active {
@@ -204,21 +235,30 @@
       box-shadow: 0 6px 26px #e05c7a66;
     }
 
+    /* No button — FIXED position so it can escape, but starts in view */
     .btn-no {
-      background: #f3f3f3;
-      color: #bbb;
-      border: 2px dashed #e0e0e0;
+      background: #f0f0f0;
+      color: #999;
+      border: 2px dashed #ddd;
       border-radius: 50px;
-      padding: 11px 24px;
+      padding: 13px 20px;
       font-family: 'Kalam', cursive;
-      font-size: clamp(0.82rem, 3.2vw, 0.92rem);
+      font-size: clamp(0.88rem, 3.5vw, 0.98rem);
       cursor: pointer;
-      position: fixed;
-      z-index: 9999;
       white-space: nowrap;
       user-select: none;
       -webkit-user-select: none;
       touch-action: none;
+      /* starts in normal flow, JS moves to fixed after load */
+      position: relative;
+      width: 100%;
+      max-width: 300px;
+    }
+    .btn-no.is-fixed {
+      position: fixed;
+      z-index: 9999;
+      width: auto;
+      max-width: none;
     }
 
     /* Success */
@@ -227,44 +267,44 @@
       flex-direction: column;
       align-items: center;
       gap: 14px;
-      padding: 10px 24px 0;
+      padding: 10px 20px 0;
     }
     .success-screen.show { display: flex; }
-    .success-emoji { font-size: 62px; animation: heartbeat .5s ease-in-out 4; }
+    .success-emoji { font-size: 60px; animation: heartbeat .5s ease-in-out 4; }
     @keyframes heartbeat {
-      0%,100% { transform: scale(1); }
-      50%      { transform: scale(1.25); }
+      0%,100%{transform:scale(1);}
+      50%{transform:scale(1.25);}
     }
     .success-msg {
       font-family: 'Dancing Script', cursive;
       font-size: clamp(1.5rem, 6vw, 1.9rem);
       color: var(--rose); font-weight: 700;
     }
-    .success-sub  { color: var(--ink-soft); font-size: clamp(0.88rem, 3.4vw, 1rem); }
+    .success-sub { color: var(--ink-soft); font-size: clamp(0.88rem,3.4vw,1rem); }
     .success-note {
-      font-size: clamp(0.78rem, 3vw, 0.88rem);
+      font-size: clamp(0.78rem,3vw,0.88rem);
       color: #b8909a; margin-top: 2px;
       line-height: 1.7; text-align: center;
     }
 
     /* Confetti / Hearts */
     .confetti-piece {
-      position: fixed; width:8px; height:8px;
+      position:fixed; width:8px; height:8px;
       opacity:0; pointer-events:none;
-      animation: cFall 1.6s ease-out forwards; z-index:9998;
+      animation:cFall 1.6s ease-out forwards; z-index:9998;
     }
     @keyframes cFall {
-      0%   { transform:translateY(0) rotate(0deg) scale(1); opacity:1; }
-      100% { transform:translateY(260px) rotate(540deg) scale(.2); opacity:0; }
+      0%{transform:translateY(0) rotate(0deg) scale(1);opacity:1;}
+      100%{transform:translateY(260px) rotate(540deg) scale(.2);opacity:0;}
     }
     .hearts-burst {
       position:fixed; font-size:20px; pointer-events:none;
-      animation: hBurst 1.1s ease-out forwards; z-index:9999;
+      animation:hBurst 1.1s ease-out forwards; z-index:9999;
     }
     @keyframes hBurst {
-      0%   { transform:scale(0) translateY(0); opacity:1; }
-      60%  { opacity:1; }
-      100% { transform:scale(1.4) translateY(-90px); opacity:0; }
+      0%{transform:scale(0) translateY(0);opacity:1;}
+      60%{opacity:1;}
+      100%{transform:scale(1.4) translateY(-90px);opacity:0;}
     }
   </style>
 </head>
@@ -277,6 +317,52 @@
   <!-- HEADER -->
   <div class="header-banner">
     <span class="flower-row">🌸 🌷 💕 🌷 🌸</span>
+    <div class="puppy-wrap">
+      <div class="puppy-circle">
+        <!-- Cute crying dog SVG — inline so no external dependency -->
+        <svg viewBox="0 0 100 100" width="88" height="88" xmlns="http://www.w3.org/2000/svg">
+          <!-- Body -->
+          <ellipse cx="50" cy="72" rx="28" ry="20" fill="#f5c98a"/>
+          <!-- Head -->
+          <circle cx="50" cy="44" r="26" fill="#f5c98a"/>
+          <!-- Ears -->
+          <ellipse cx="26" cy="36" rx="10" ry="16" fill="#e8a855" transform="rotate(-15 26 36)"/>
+          <ellipse cx="74" cy="36" rx="10" ry="16" fill="#e8a855" transform="rotate(15 74 36)"/>
+          <ellipse cx="26" cy="37" rx="6" ry="11" fill="#f5b8c8" transform="rotate(-15 26 37)"/>
+          <ellipse cx="74" cy="37" rx="6" ry="11" fill="#f5b8c8" transform="rotate(15 74 37)"/>
+          <!-- Face patch -->
+          <ellipse cx="50" cy="50" rx="14" ry="10" fill="#fff0d8"/>
+          <!-- Eyes — sad droopy -->
+          <ellipse cx="38" cy="42" rx="6" ry="7" fill="white"/>
+          <ellipse cx="62" cy="42" rx="6" ry="7" fill="white"/>
+          <circle cx="39" cy="44" r="3.5" fill="#3a2010"/>
+          <circle cx="63" cy="44" r="3.5" fill="#3a2010"/>
+          <circle cx="40.5" cy="42.5" r="1.2" fill="white"/>
+          <circle cx="64.5" cy="42.5" r="1.2" fill="white"/>
+          <!-- Sad eyebrows -->
+          <path d="M33 37 Q38 33 43 36" stroke="#a0622a" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M57 36 Q62 33 67 37" stroke="#a0622a" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <!-- Nose -->
+          <ellipse cx="50" cy="51" rx="4" ry="2.5" fill="#cc7733"/>
+          <!-- Sad mouth -->
+          <path d="M44 57 Q50 53 56 57" stroke="#cc7733" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <!-- Tear drops -->
+          <ellipse cx="35" cy="51" rx="2" ry="3" fill="#7ec8e3" opacity="0.85">
+            <animate attributeName="cy" from="49" to="62" dur="1.2s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" from="0.9" to="0" dur="1.2s" repeatCount="indefinite"/>
+          </ellipse>
+          <ellipse cx="65" cy="51" rx="2" ry="3" fill="#7ec8e3" opacity="0.85">
+            <animate attributeName="cy" from="49" to="62" dur="1.0s" begin="0.3s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" from="0.9" to="0" dur="1.0s" begin="0.3s" repeatCount="indefinite"/>
+          </ellipse>
+          <!-- SORRY sign -->
+          <rect x="30" y="75" width="40" height="18" rx="3" fill="white" stroke="#e05c7a" stroke-width="1.5"/>
+          <text x="50" y="88" text-anchor="middle" font-family="Arial" font-size="9" font-weight="bold" fill="#e05c7a">SORRY</text>
+        </svg>
+      </div>
+      <span class="sparkle-tl">✨</span>
+    </div>
+
     <span class="sorry-headline">I'm Sorry...</span>
     <span class="sorry-tagline">from the bottom of my heart</span>
     <div class="heart-divider">
@@ -297,8 +383,10 @@
         Bas ek baar maaf kar do... please?
       </div>
 
-      <button class="btn-yes" onclick="handleYes()">💖 Maaf kar diya</button>
-      <button class="btn-no" id="noBtn">Nahi maaf karunga 😤</button>
+      <div class="btn-row">
+        <button class="btn-yes" onclick="handleYes()">💖 Maaf kar diya</button>
+        <button class="btn-no" id="noBtn">😤 Nahi maaf karunga</button>
+      </div>
     </div>
 
     <div class="success-screen" id="successSection">
@@ -314,7 +402,7 @@
 <script>
   /* Petals */
   const pc = document.getElementById('petals');
-  for (let i = 0; i < 16; i++) {
+  for (let i = 0; i < 14; i++) {
     const p = document.createElement('div'); p.className = 'petal';
     p.style.left = Math.random()*100+'vw';
     p.style.animationDuration = (6+Math.random()*8)+'s';
@@ -322,17 +410,18 @@
     pc.appendChild(p);
   }
 
-  /* No button — place after render */
+  /* No button — switch to fixed after 300ms so it's visible first */
   const noBtn = document.getElementById('noBtn');
-  function placeNoBtn() {
-    const card = document.getElementById('mainCard');
-    const r = card.getBoundingClientRect();
-    noBtn.style.left = Math.min(r.left + r.width/2 + 30, window.innerWidth - 200) + 'px';
-    noBtn.style.top  = Math.min(r.bottom - 52, window.innerHeight - 70) + 'px';
-  }
-  setTimeout(placeNoBtn, 150);
-
   let attempts = 0;
+
+  setTimeout(() => {
+    const r = noBtn.getBoundingClientRect();
+    noBtn.classList.add('is-fixed');
+    noBtn.style.left = r.left + 'px';
+    noBtn.style.top  = r.top  + 'px';
+    noBtn.style.width = r.width + 'px';
+  }, 300);
+
   const sorryTexts = [
     "Dil se maafi mangta hoon. 🙏",
     "Sacchi mein bahut bura lag raha hai... please? 🥺",
@@ -342,17 +431,19 @@
   ];
 
   function runAway() {
+    if (!noBtn.classList.contains('is-fixed')) return;
     attempts++;
     const idx = Math.min(attempts, sorryTexts.length - 1);
     document.getElementById('sorryText').textContent = sorryTexts[idx];
 
-    const m = 70;
-    const bw = noBtn.offsetWidth  || 180;
+    const bw = noBtn.offsetWidth  || 200;
     const bh = noBtn.offsetHeight || 48;
+    const m  = 16;
     const maxX = window.innerWidth  - bw - m;
     const maxY = window.innerHeight - bh - m;
-    noBtn.style.left = (m + Math.random() * Math.max(maxX - m, 0)) + 'px';
-    noBtn.style.top  = (m + Math.random() * Math.max(maxY - m, 0)) + 'px';
+    noBtn.style.left  = (m + Math.random() * Math.max(maxX - m, 10)) + 'px';
+    noBtn.style.top   = (m + Math.random() * Math.max(maxY - m, 10)) + 'px';
+    noBtn.style.width = 'auto';
   }
 
   noBtn.addEventListener('mouseenter', runAway);
@@ -374,26 +465,26 @@
     const r = document.querySelector('.btn-yes').getBoundingClientRect();
     for (let i = 0; i < 14; i++) {
       const h = document.createElement('div'); h.className = 'hearts-burst';
-      h.textContent = list[Math.floor(Math.random() * list.length)];
-      h.style.left = (r.left + 20 + Math.random() * (r.width - 40)) + 'px';
-      h.style.top  = (r.top  + 8  + Math.random() * 18) + 'px';
-      h.style.animationDelay = (Math.random() * .4) + 's';
+      h.textContent = list[Math.floor(Math.random()*list.length)];
+      h.style.left = (r.left+20+Math.random()*(r.width-40))+'px';
+      h.style.top  = (r.top+8+Math.random()*18)+'px';
+      h.style.animationDelay = (Math.random()*.4)+'s';
       document.body.appendChild(h);
-      setTimeout(() => h.remove(), 1600);
+      setTimeout(()=>h.remove(),1600);
     }
   }
 
   function launchConfetti() {
-    const colors = ['#e05c7a','#f5a0b5','#d4956a','#f9c6ce','#c94a68','#ffd6e0'];
-    for (let i = 0; i < 50; i++) {
-      const c = document.createElement('div'); c.className = 'confetti-piece';
-      c.style.background = colors[Math.floor(Math.random() * colors.length)];
-      c.style.left = (5  + Math.random() * 90) + 'vw';
-      c.style.top  = (10 + Math.random() * 50) + 'vh';
-      c.style.borderRadius = Math.random() > .5 ? '50%' : '2px';
-      c.style.animationDelay = (Math.random() * .6) + 's';
+    const colors=['#e05c7a','#f5a0b5','#d4956a','#f9c6ce','#c94a68','#ffd6e0'];
+    for(let i=0;i<50;i++){
+      const c=document.createElement('div'); c.className='confetti-piece';
+      c.style.background=colors[Math.floor(Math.random()*colors.length)];
+      c.style.left=(5+Math.random()*90)+'vw';
+      c.style.top=(10+Math.random()*50)+'vh';
+      c.style.borderRadius=Math.random()>.5?'50%':'2px';
+      c.style.animationDelay=(Math.random()*.6)+'s';
       document.body.appendChild(c);
-      setTimeout(() => c.remove(), 2200);
+      setTimeout(()=>c.remove(),2200);
     }
   }
 </script>
