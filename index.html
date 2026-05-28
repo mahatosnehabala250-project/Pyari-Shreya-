@@ -7,17 +7,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Kalam:wght@400;700&family=Lora:ital@1&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-
-    body {
+    body{
       min-height:100vh;
       background:linear-gradient(160deg,#fff0f4 0%,#fff9f6 60%,#f3faf5 100%);
       font-family:'Kalam',cursive;
-      display:flex;flex-direction:column;
-      align-items:center;justify-content:flex-start;
-      padding:18px 14px 30px;
-      overflow-x:hidden;
+      display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+      padding:18px 14px 30px;overflow-x:hidden;
     }
-
     .petal{
       position:fixed;width:9px;height:15px;
       background:radial-gradient(ellipse at 40% 30%,#f9c6ce,#e8637a44);
@@ -29,7 +25,6 @@
       10%{opacity:.6}90%{opacity:.3}
       100%{transform:translateY(110vh) rotate(580deg) translateX(25px);opacity:0}
     }
-
     .card{
       background:#fff;border-radius:26px;
       width:100%;max-width:400px;
@@ -38,67 +33,44 @@
       animation:cardIn .7s cubic-bezier(.175,.885,.32,1.275) both;
       z-index:10;position:relative;
     }
-    @keyframes cardIn{
-      from{transform:scale(.84) translateY(20px);opacity:0}
-      to{transform:scale(1) translateY(0);opacity:1}
-    }
+    @keyframes cardIn{from{transform:scale(.84) translateY(20px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
 
     /* HEADER */
     .hdr{
       background:linear-gradient(145deg,#fce4ec,#ffd6e4,#ffeef2);
-      padding:26px 20px 22px;
-      text-align:center;position:relative;overflow:hidden;
+      padding:26px 20px 22px;text-align:center;position:relative;overflow:hidden;
     }
     .hdr::before{
-      content:'';position:absolute;
-      width:180px;height:180px;border-radius:50%;
-      background:radial-gradient(circle,#f9b8cb44,transparent 70%);
-      top:-60px;right:-50px;
+      content:'';position:absolute;width:180px;height:180px;border-radius:50%;
+      background:radial-gradient(circle,#f9b8cb44,transparent 70%);top:-60px;right:-50px;
     }
-    .flower-row{
-      font-size:19px;letter-spacing:5px;display:block;
-      margin-bottom:12px;position:relative;z-index:1;
-      animation:sway 3s ease-in-out infinite;
-    }
+    .flower-row{font-size:19px;letter-spacing:5px;display:block;margin-bottom:12px;position:relative;z-index:1;animation:sway 3s ease-in-out infinite;}
     @keyframes sway{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
-
     .puppy-wrap{position:relative;display:inline-block;margin-bottom:12px;z-index:1;}
     .puppy-circle{
       width:100px;height:100px;border-radius:50%;
       background:linear-gradient(135deg,#ffc8d8,#ffadc5);
       display:flex;align-items:center;justify-content:center;
-      margin:0 auto;
-      box-shadow:0 4px 18px #e05c7a33;border:3px solid #fff;
+      margin:0 auto;box-shadow:0 4px 18px #e05c7a33;border:3px solid #fff;
       animation:pfloat 3s ease-in-out infinite;
     }
     @keyframes pfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
     .sparkle{position:absolute;top:-4px;right:0;font-size:18px;animation:sp 2.5s ease-in-out infinite;}
     @keyframes sp{0%,100%{transform:rotate(-10deg) scale(1)}50%{transform:rotate(15deg) scale(1.2)}}
-
     .name-tag{
-      display:inline-block;
-      background:linear-gradient(135deg,#e05c7a,#c94a68);
-      color:#fff;font-family:'Dancing Script',cursive;
-      font-size:1.15rem;font-weight:700;
-      padding:5px 18px;border-radius:50px;
-      margin-bottom:10px;
-      box-shadow:0 3px 12px #e05c7a44;
-      position:relative;z-index:1;
+      display:inline-block;background:linear-gradient(135deg,#e05c7a,#c94a68);
+      color:#fff;font-family:'Dancing Script',cursive;font-size:1.15rem;font-weight:700;
+      padding:5px 18px;border-radius:50px;margin-bottom:10px;
+      box-shadow:0 3px 12px #e05c7a44;position:relative;z-index:1;
       animation:namepulse 2s ease-in-out infinite;
     }
     @keyframes namepulse{0%,100%{box-shadow:0 3px 12px #e05c7a44}50%{box-shadow:0 3px 22px #e05c7a88}}
-
     .sorry-headline{
-      font-family:'Dancing Script',cursive;
-      font-size:clamp(2.4rem,10vw,3.2rem);font-weight:700;color:#e05c7a;
-      line-height:1.1;display:block;position:relative;z-index:1;
-      text-shadow:0 2px 14px #f5a0b555;margin-bottom:4px;
+      font-family:'Dancing Script',cursive;font-size:clamp(2.4rem,10vw,3.2rem);
+      font-weight:700;color:#e05c7a;line-height:1.1;display:block;
+      position:relative;z-index:1;text-shadow:0 2px 14px #f5a0b555;margin-bottom:4px;
     }
-    .sorry-tagline{
-      font-family:'Lora',serif;font-style:italic;
-      font-size:clamp(.78rem,3vw,.9rem);color:#9a6070;
-      display:block;position:relative;z-index:1;margin-bottom:12px;
-    }
+    .sorry-tagline{font-family:'Lora',serif;font-style:italic;font-size:clamp(.78rem,3vw,.9rem);color:#9a6070;display:block;position:relative;z-index:1;margin-bottom:12px;}
     .hdivider{display:flex;align-items:center;justify-content:center;gap:8px;position:relative;z-index:1;}
     .hdivider .ln{display:block;height:1px;width:55px;background:linear-gradient(to right,transparent,#f5a0b5aa)}
     .hdivider .ln.r{background:linear-gradient(to left,transparent,#f5a0b5aa)}
@@ -106,12 +78,13 @@
     @keyframes hbeat{0%,100%{transform:scale(1)}50%{transform:scale(1.35)}}
 
     /* BODY */
-    .body{padding:20px 18px 22px}
+    .body{padding:18px 16px 22px}
 
+    /* Main message */
     .msg{
-      font-size:clamp(.86rem,3.4vw,.96rem);color:#3a1f28;line-height:1.88;
+      font-size:clamp(.86rem,3.4vw,.96rem);color:#3a1f28;line-height:1.9;
       background:#fdeef2;border-radius:16px;padding:16px 17px;
-      margin-bottom:20px;border-left:3px solid #f5a0b5;
+      margin-bottom:14px;border-left:3px solid #f5a0b5;
       text-align:center;word-break:break-word;
     }
     .sorry-text{
@@ -121,54 +94,68 @@
     }
     @keyframes pc{0%,100%{color:#e05c7a}50%{color:#a83558}}
 
-    /* ── BUTTON CONTAINER — relative, clips no-btn movement ── */
-    .btns{
-      display:flex;flex-direction:column;
-      align-items:center;gap:0;
-      position:relative;
-      /* height: yes-btn + gap + no-btn + padding */
-      min-height:130px;
+    /* Personal memory cards */
+    .memories{
+      display:flex;flex-direction:column;gap:10px;
+      margin-bottom:18px;
+    }
+    .mem-card{
+      background:#fff5f8;border-radius:14px;
+      padding:12px 15px;
+      border:1.5px solid #f5c0ce;
+      font-size:clamp(.82rem,3.2vw,.92rem);
+      color:#5a2a38;line-height:1.7;
+      text-align:left;
+      display:flex;align-items:flex-start;gap:10px;
+    }
+    .mem-icon{font-size:1.3rem;flex-shrink:0;margin-top:1px;}
+    .mem-text{flex:1;}
+    .mem-text strong{color:#e05c7a;font-size:.95em;}
+
+    /* Promise box */
+    .promise{
+      background:linear-gradient(135deg,#fce4ec,#ffeef6);
+      border-radius:14px;padding:14px 16px;
+      margin-bottom:18px;
+      border:1.5px solid #f5a0b5;
+      text-align:center;
+      font-size:clamp(.84rem,3.3vw,.94rem);
+      color:#3a1f28;line-height:1.8;
+    }
+    .promise-title{
+      font-family:'Dancing Script',cursive;
+      font-size:clamp(1.1rem,4.5vw,1.3rem);
+      color:#e05c7a;font-weight:700;
+      display:block;margin-bottom:6px;
     }
 
+    /* BUTTONS */
+    .btns{display:flex;flex-direction:column;align-items:center;gap:0;position:relative;min-height:130px;}
     .btn-yes{
-      background:linear-gradient(135deg,#e05c7a,#c94a68);
-      color:#fff;border:none;border-radius:50px;
-      padding:15px 0;
-      font-family:'Kalam',cursive;
-      font-size:clamp(1rem,4vw,1.08rem);font-weight:700;
-      cursor:pointer;width:100%;
-      box-shadow:0 4px 18px #e05c7a44;
-      position:relative;z-index:2;
+      background:linear-gradient(135deg,#e05c7a,#c94a68);color:#fff;
+      border:none;border-radius:50px;padding:15px 0;
+      font-family:'Kalam',cursive;font-size:clamp(1rem,4vw,1.08rem);font-weight:700;
+      cursor:pointer;width:100%;box-shadow:0 4px 18px #e05c7a44;
+      position:relative;z-index:2;margin-bottom:12px;
       transition:transform .15s,box-shadow .15s;
-      margin-bottom:12px;
     }
     .btn-yes:active{transform:scale(.97)}
-
-    /* No button — ABSOLUTE inside .btns so it never leaves the card */
     .btn-no{
-      background:#f5f5f5;color:#999;
-      border:2px dashed #ddd;border-radius:50px;
-      padding:12px 28px;
-      font-family:'Kalam',cursive;
-      font-size:clamp(.86rem,3.5vw,.96rem);
-      cursor:pointer;
-      position:absolute;
-      bottom:0;left:50%;
-      transform:translateX(-50%);
-      white-space:nowrap;
-      user-select:none;-webkit-user-select:none;touch-action:none;
-      transition:left .08s, top .08s, bottom .08s, transform .08s;
-      z-index:3;
+      background:#f5f5f5;color:#999;border:2px dashed #ddd;border-radius:50px;
+      padding:12px 28px;font-family:'Kalam',cursive;font-size:clamp(.86rem,3.5vw,.96rem);
+      cursor:pointer;position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+      white-space:nowrap;user-select:none;-webkit-user-select:none;touch-action:none;z-index:3;
     }
 
     /* SUCCESS */
-    .success{display:none;flex-direction:column;align-items:center;gap:13px;padding:8px 18px 0;text-align:center;}
+    .success{display:none;flex-direction:column;align-items:center;gap:13px;padding:8px 16px 0;text-align:center;}
     .success.show{display:flex}
     .s-emoji{font-size:58px;animation:sb .5s ease-in-out 4}
     @keyframes sb{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
     .s-msg{font-family:'Dancing Script',cursive;font-size:clamp(1.45rem,6vw,1.85rem);color:#e05c7a;font-weight:700}
     .s-sub{color:#9a6070;font-size:clamp(.86rem,3.4vw,.98rem)}
     .s-note{font-size:clamp(.76rem,3vw,.86rem);color:#b8909a;line-height:1.7}
+    .s-items{font-size:clamp(.8rem,3.2vw,.9rem);color:#c97a90;margin-top:2px;line-height:1.8;}
 
     /* confetti/hearts */
     .cp{position:fixed;width:8px;height:8px;opacity:0;pointer-events:none;animation:cf 1.6s ease-out forwards;z-index:9998}
@@ -229,32 +216,90 @@
 
   <div class="body">
     <div id="apologySection">
+
+      <!-- Main apology -->
       <div class="msg">
         Shreya, pata hai maine galat kiya.<br/>
         Tumhare dil ko takleef pahunchi —<br/>
-        woh meri galti thi.<br/><br/>
+        woh sirf meri galti thi, tumhari nahi.<br/><br/>
         <span class="sorry-text" id="sorryText">Dil se maafi mangta hoon. 🙏</span>
         Bas ek baar maaf kar do... please?
       </div>
 
+      <!-- Personal memory cards -->
+      <div class="memories">
+
+        <div class="mem-card">
+          <span class="mem-icon">☕</span>
+          <div class="mem-text">
+            Tumhe <strong>chai aur fuchka</strong> kitna pasand hai — woh sab yaad hai.<br/>
+            Kash ek baar saath baith ke chai pi sakein... phir se. 🥺
+          </div>
+        </div>
+
+        <div class="mem-card">
+          <span class="mem-icon">💃</span>
+          <div class="mem-text">
+            Tumhara sapna tha <strong>ek dancer banna</strong> —<br/>
+            woh sapna kitna sundar hai, aur tum bhi utni hi sundar ho.
+          </div>
+        </div>
+
+        <div class="mem-card">
+          <span class="mem-icon">🍦</span>
+          <div class="mem-text">
+            <strong>Ice cream, momo, fried rice</strong> — har choti khushi mein<br/>
+            tumhara chehra yaad aata hai. 🌸
+          </div>
+        </div>
+
+        <div class="mem-card">
+          <span class="mem-icon">🤍</span>
+          <div class="mem-text">
+            Tum bahut <strong>soft aur caring</strong> ho andar se —<br/>
+            main jaanta hoon tumhara dil kitna bada hai.<br/>
+            Isliye aur zyada dard hota hai ki maine hurt kiya.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Promise -->
+      <div class="promise">
+        <span class="promise-title">Mera Waada 🌷</span>
+        Tumhara trust toot gaya — woh meri galti thi.<br/>
+        Koi pressure nahi, koi jaldi nahi.<br/>
+        Bas itna jaano ki <strong style="color:#e05c7a">tum mere liye important ho</strong> —<br/>
+        hamesha thi, hamesha rahogi. 💕
+      </div>
+
+      <!-- Buttons -->
       <div class="btns" id="btnContainer">
         <button class="btn-yes" onclick="handleYes()">💖 Maaf kar diya</button>
         <button class="btn-no" id="noBtn">😤 Nahi maaf karunga</button>
       </div>
+
     </div>
 
+    <!-- Success -->
     <div class="success" id="successSection">
       <div class="s-emoji">🥰</div>
       <div class="s-msg">Shukriya Shreya! 💕</div>
       <div class="s-sub">Tum bahut achhi ho... ❤️</div>
-      <div class="s-note">Waada hai —<br/>aage se hamesha dhyan rakhunga. 🌸</div>
+      <div class="s-items">
+        Ab chai bhi peeyenge saath ☕<br/>
+        fuchka bhi khayenge 🥟<br/>
+        aur tumhari dance bhi dekhenge 💃
+      </div>
+      <div class="s-note" style="margin-top:4px">
+        Waada hai — aage se hamesha<br/>dhyan rakhunga. 🌸
+      </div>
     </div>
   </div>
 
 </div>
 
 <script>
-  /* petals */
   for(let i=0;i<14;i++){
     const p=document.createElement('div');p.className='petal';
     p.style.left=Math.random()*100+'vw';
@@ -263,11 +308,11 @@
     document.getElementById('petals').appendChild(p);
   }
 
-  const noBtn = document.getElementById('noBtn');
-  const container = document.getElementById('btnContainer');
-  let attempts = 0;
+  const noBtn=document.getElementById('noBtn');
+  const container=document.getElementById('btnContainer');
+  let attempts=0;
 
-  const sorryTexts = [
+  const sorryTexts=[
     "Dil se maafi mangta hoon. 🙏",
     "Sacchi mein bahut bura lag raha hai... please? 🥺",
     "Baar baar maafi maangunga jab tak maaf na karo! 😢",
@@ -275,68 +320,53 @@
     "Ek baar... bas ek baar maaf kar do Shreya... 🌸"
   ];
 
-  function runAway() {
+  function runAway(){
     attempts++;
-    document.getElementById('sorryText').textContent =
-      sorryTexts[Math.min(attempts, sorryTexts.length - 1)];
-
-    // Move WITHIN the container bounds only
-    const cw = container.offsetWidth;
-    const ch = container.offsetHeight;
-    const bw = noBtn.offsetWidth;
-    const bh = noBtn.offsetHeight;
-
-    // random x: 0 to (cw - bw), then center-offset
-    const maxX = Math.max(cw - bw - 8, 4);
-    const maxY = Math.max(ch - bh - 4, 0);
-
-    const newLeft = 4 + Math.random() * maxX;
-    const newTop  = Math.random() * maxY;
-
-    // Switch from bottom/transform to top/left absolute
-    noBtn.style.bottom    = 'auto';
-    noBtn.style.transform = 'none';
-    noBtn.style.left      = newLeft + 'px';
-    noBtn.style.top       = newTop  + 'px';
+    document.getElementById('sorryText').textContent=sorryTexts[Math.min(attempts,sorryTexts.length-1)];
+    const cw=container.offsetWidth, ch=container.offsetHeight;
+    const bw=noBtn.offsetWidth, bh=noBtn.offsetHeight;
+    const maxX=Math.max(cw-bw-8,4), maxY=Math.max(ch-bh-4,0);
+    noBtn.style.bottom='auto';
+    noBtn.style.transform='none';
+    noBtn.style.left=(4+Math.random()*maxX)+'px';
+    noBtn.style.top=(Math.random()*maxY)+'px';
   }
 
-  noBtn.addEventListener('mouseenter', runAway);
-  noBtn.addEventListener('touchstart', e => { e.preventDefault(); runAway(); }, { passive: false });
-  noBtn.addEventListener('click',      e => { e.preventDefault(); runAway(); });
+  noBtn.addEventListener('mouseenter',runAway);
+  noBtn.addEventListener('touchstart',e=>{e.preventDefault();runAway();},{passive:false});
+  noBtn.addEventListener('click',e=>{e.preventDefault();runAway();});
 
-  function handleYes() {
-    burstHearts(); launchConfetti();
-    setTimeout(() => {
-      document.getElementById('apologySection').style.display = 'none';
+  function handleYes(){
+    burstHearts();launchConfetti();
+    setTimeout(()=>{
+      document.getElementById('apologySection').style.display='none';
       document.getElementById('successSection').classList.add('show');
-    }, 400);
+    },400);
   }
 
-  function burstHearts() {
-    const list = ['💖','💕','🌸','💗','✨','🥰','💝','🌹'];
-    const r = document.querySelector('.btn-yes').getBoundingClientRect();
-    for (let i = 0; i < 14; i++) {
-      const h = document.createElement('div'); h.className = 'hb';
-      h.textContent = list[Math.floor(Math.random() * list.length)];
-      h.style.left = (r.left + 20 + Math.random() * (r.width - 40)) + 'px';
-      h.style.top  = (r.top  + 8  + Math.random() * 16) + 'px';
-      h.style.animationDelay = (Math.random() * .4) + 's';
-      document.body.appendChild(h);
-      setTimeout(() => h.remove(), 1600);
+  function burstHearts(){
+    const list=['💖','💕','🌸','💗','✨','🥰','💝','🌹'];
+    const r=document.querySelector('.btn-yes').getBoundingClientRect();
+    for(let i=0;i<14;i++){
+      const h=document.createElement('div');h.className='hb';
+      h.textContent=list[Math.floor(Math.random()*list.length)];
+      h.style.left=(r.left+20+Math.random()*(r.width-40))+'px';
+      h.style.top=(r.top+8+Math.random()*16)+'px';
+      h.style.animationDelay=(Math.random()*.4)+'s';
+      document.body.appendChild(h);setTimeout(()=>h.remove(),1600);
     }
   }
 
-  function launchConfetti() {
-    const cols = ['#e05c7a','#f5a0b5','#d4956a','#f9c6ce','#c94a68','#ffd6e0'];
-    for (let i = 0; i < 50; i++) {
-      const c = document.createElement('div'); c.className = 'cp';
-      c.style.background = cols[Math.floor(Math.random() * cols.length)];
-      c.style.left = (5 + Math.random() * 90) + 'vw';
-      c.style.top  = (10 + Math.random() * 50) + 'vh';
-      c.style.borderRadius = Math.random() > .5 ? '50%' : '2px';
-      c.style.animationDelay = (Math.random() * .6) + 's';
-      document.body.appendChild(c);
-      setTimeout(() => c.remove(), 2200);
+  function launchConfetti(){
+    const cols=['#e05c7a','#f5a0b5','#d4956a','#f9c6ce','#c94a68','#ffd6e0'];
+    for(let i=0;i<50;i++){
+      const c=document.createElement('div');c.className='cp';
+      c.style.background=cols[Math.floor(Math.random()*cols.length)];
+      c.style.left=(5+Math.random()*90)+'vw';
+      c.style.top=(10+Math.random()*50)+'vh';
+      c.style.borderRadius=Math.random()>.5?'50%':'2px';
+      c.style.animationDelay=(Math.random()*.6)+'s';
+      document.body.appendChild(c);setTimeout(()=>c.remove(),2200);
     }
   }
 </script>
