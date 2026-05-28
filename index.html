@@ -26,11 +26,9 @@
       100%{transform:translateY(110vh) rotate(580deg) translateX(25px);opacity:0}
     }
     .card{
-      background:#fff;border-radius:26px;
-      width:100%;max-width:400px;
+      background:#fff;border-radius:26px;width:100%;max-width:400px;
       box-shadow:0 16px 48px #e8637a18,0 0 0 1.5px #f5a0af44;
-      overflow:hidden;
-      animation:cardIn .7s cubic-bezier(.175,.885,.32,1.275) both;
+      overflow:hidden;animation:cardIn .7s cubic-bezier(.175,.885,.32,1.275) both;
       z-index:10;position:relative;
     }
     @keyframes cardIn{from{transform:scale(.84) translateY(20px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
@@ -78,86 +76,59 @@
     @keyframes hbeat{0%,100%{transform:scale(1)}50%{transform:scale(1.35)}}
 
     /* BODY */
-    .body{padding:18px 16px 22px}
+    .body{padding:20px 18px 22px}
 
-    /* Main message */
     .msg{
-      font-size:clamp(.86rem,3.4vw,.96rem);color:#3a1f28;line-height:1.9;
-      background:#fdeef2;border-radius:16px;padding:16px 17px;
-      margin-bottom:14px;border-left:3px solid #f5a0b5;
+      font-size:clamp(.9rem,3.5vw,1rem);color:#3a1f28;line-height:2;
+      background:#fdeef2;border-radius:16px;padding:18px 18px;
+      margin-bottom:16px;border-left:3px solid #f5a0b5;
       text-align:center;word-break:break-word;
     }
     .sorry-text{
-      font-size:clamp(.94rem,3.8vw,1.06rem);font-weight:700;color:#e05c7a;
-      display:block;margin:8px 0 5px;line-height:1.5;
+      font-size:clamp(.96rem,3.8vw,1.08rem);font-weight:700;color:#e05c7a;
+      display:block;margin:10px 0 6px;line-height:1.5;
       animation:pc 2.5s ease-in-out infinite;
     }
     @keyframes pc{0%,100%{color:#e05c7a}50%{color:#a83558}}
 
-    /* Personal memory cards */
-    .memories{
-      display:flex;flex-direction:column;gap:10px;
-      margin-bottom:18px;
-    }
-    .mem-card{
+    /* single personal note */
+    .personal-note{
       background:#fff5f8;border-radius:14px;
-      padding:12px 15px;
+      padding:14px 16px;margin-bottom:18px;
       border:1.5px solid #f5c0ce;
-      font-size:clamp(.82rem,3.2vw,.92rem);
-      color:#5a2a38;line-height:1.7;
-      text-align:left;
-      display:flex;align-items:flex-start;gap:10px;
-    }
-    .mem-icon{font-size:1.3rem;flex-shrink:0;margin-top:1px;}
-    .mem-text{flex:1;}
-    .mem-text strong{color:#e05c7a;font-size:.95em;}
-
-    /* Promise box */
-    .promise{
-      background:linear-gradient(135deg,#fce4ec,#ffeef6);
-      border-radius:14px;padding:14px 16px;
-      margin-bottom:18px;
-      border:1.5px solid #f5a0b5;
-      text-align:center;
       font-size:clamp(.84rem,3.3vw,.94rem);
-      color:#3a1f28;line-height:1.8;
+      color:#5a2a38;line-height:1.85;text-align:center;
     }
-    .promise-title{
-      font-family:'Dancing Script',cursive;
-      font-size:clamp(1.1rem,4.5vw,1.3rem);
-      color:#e05c7a;font-weight:700;
-      display:block;margin-bottom:6px;
-    }
+    .personal-note .highlight{color:#e05c7a;font-weight:700;}
 
     /* BUTTONS */
-    .btns{display:flex;flex-direction:column;align-items:center;gap:0;position:relative;min-height:130px;}
+    .btns{display:flex;flex-direction:column;align-items:center;position:relative;min-height:130px;}
     .btn-yes{
       background:linear-gradient(135deg,#e05c7a,#c94a68);color:#fff;
       border:none;border-radius:50px;padding:15px 0;
       font-family:'Kalam',cursive;font-size:clamp(1rem,4vw,1.08rem);font-weight:700;
       cursor:pointer;width:100%;box-shadow:0 4px 18px #e05c7a44;
       position:relative;z-index:2;margin-bottom:12px;
-      transition:transform .15s,box-shadow .15s;
+      transition:transform .15s;
     }
     .btn-yes:active{transform:scale(.97)}
     .btn-no{
       background:#f5f5f5;color:#999;border:2px dashed #ddd;border-radius:50px;
-      padding:12px 28px;font-family:'Kalam',cursive;font-size:clamp(.86rem,3.5vw,.96rem);
+      padding:12px 28px;font-family:'Kalam',cursive;
+      font-size:clamp(.86rem,3.5vw,.96rem);
       cursor:pointer;position:absolute;bottom:0;left:50%;transform:translateX(-50%);
       white-space:nowrap;user-select:none;-webkit-user-select:none;touch-action:none;z-index:3;
     }
 
     /* SUCCESS */
-    .success{display:none;flex-direction:column;align-items:center;gap:13px;padding:8px 16px 0;text-align:center;}
+    .success{display:none;flex-direction:column;align-items:center;gap:12px;padding:8px 16px 0;text-align:center;}
     .success.show{display:flex}
     .s-emoji{font-size:58px;animation:sb .5s ease-in-out 4}
     @keyframes sb{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
     .s-msg{font-family:'Dancing Script',cursive;font-size:clamp(1.45rem,6vw,1.85rem);color:#e05c7a;font-weight:700}
-    .s-sub{color:#9a6070;font-size:clamp(.86rem,3.4vw,.98rem)}
+    .s-sub{color:#9a6070;font-size:clamp(.86rem,3.4vw,.98rem);line-height:1.7}
     .s-note{font-size:clamp(.76rem,3vw,.86rem);color:#b8909a;line-height:1.7}
-    .s-items{font-size:clamp(.8rem,3.2vw,.9rem);color:#c97a90;margin-top:2px;line-height:1.8;}
 
-    /* confetti/hearts */
     .cp{position:fixed;width:8px;height:8px;opacity:0;pointer-events:none;animation:cf 1.6s ease-out forwards;z-index:9998}
     @keyframes cf{0%{transform:translateY(0) rotate(0) scale(1);opacity:1}100%{transform:translateY(260px) rotate(540deg) scale(.2);opacity:0}}
     .hb{position:fixed;font-size:20px;pointer-events:none;animation:hburst 1.1s ease-out forwards;z-index:9999}
@@ -169,7 +140,6 @@
 <div id="petals"></div>
 
 <div class="card">
-
   <div class="hdr">
     <span class="flower-row">🌸 🌷 💕 🌷 🌸</span>
     <div class="puppy-wrap">
@@ -217,86 +187,40 @@
   <div class="body">
     <div id="apologySection">
 
-      <!-- Main apology -->
       <div class="msg">
         Shreya, pata hai maine galat kiya.<br/>
         Tumhare dil ko takleef pahunchi —<br/>
-        woh sirf meri galti thi, tumhari nahi.<br/><br/>
+        woh meri galti thi, tumhari nahi.<br/><br/>
         <span class="sorry-text" id="sorryText">Dil se maafi mangta hoon. 🙏</span>
-        Bas ek baar maaf kar do... please?
-      </div>
-
-      <!-- Personal memory cards -->
-      <div class="memories">
-
-        <div class="mem-card">
-          <span class="mem-icon">☕</span>
-          <div class="mem-text">
-            Tumhe <strong>chai aur fuchka</strong> kitna pasand hai — woh sab yaad hai.<br/>
-            Kash ek baar saath baith ke chai pi sakein... phir se. 🥺
-          </div>
-        </div>
-
-        <div class="mem-card">
-          <span class="mem-icon">💃</span>
-          <div class="mem-text">
-            Tumhara sapna tha <strong>ek dancer banna</strong> —<br/>
-            woh sapna kitna sundar hai, aur tum bhi utni hi sundar ho.
-          </div>
-        </div>
-
-        <div class="mem-card">
-          <span class="mem-icon">🍦</span>
-          <div class="mem-text">
-            <strong>Ice cream, momo, fried rice</strong> — har choti khushi mein<br/>
-            tumhara chehra yaad aata hai. 🌸
-          </div>
-        </div>
-
-        <div class="mem-card">
-          <span class="mem-icon">🤍</span>
-          <div class="mem-text">
-            Tum bahut <strong>soft aur caring</strong> ho andar se —<br/>
-            main jaanta hoon tumhara dil kitna bada hai.<br/>
-            Isliye aur zyada dard hota hai ki maine hurt kiya.
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Promise -->
-      <div class="promise">
-        <span class="promise-title">Mera Waada 🌷</span>
-        Tumhara trust toot gaya — woh meri galti thi.<br/>
         Koi pressure nahi, koi jaldi nahi.<br/>
-        Bas itna jaano ki <strong style="color:#e05c7a">tum mere liye important ho</strong> —<br/>
-        hamesha thi, hamesha rahogi. 💕
+        Bas maaf kar do ek baar... please? 🥺
       </div>
 
-      <!-- Buttons -->
+      <!-- ONE personal note — only what truly matters -->
+      <div class="personal-note">
+        💃 Tumhara sapna hai ek <span class="highlight">dancer banana</span> —<br/>
+        itni caring aur soft ho tum andar se...<br/>
+        aisa dil hurt kiya maine — yeh sochke<br/>
+        <span class="highlight">bahut bura lagta hai. 🤍</span><br/><br/>
+        Tumhara trust mujhe wapis chahiye —<br/>
+        chahe kitna bhi waqt lage. ☕
+      </div>
+
       <div class="btns" id="btnContainer">
         <button class="btn-yes" onclick="handleYes()">💖 Maaf kar diya</button>
         <button class="btn-no" id="noBtn">😤 Nahi maaf karunga</button>
       </div>
-
     </div>
 
-    <!-- Success -->
     <div class="success" id="successSection">
       <div class="s-emoji">🥰</div>
       <div class="s-msg">Shukriya Shreya! 💕</div>
-      <div class="s-sub">Tum bahut achhi ho... ❤️</div>
-      <div class="s-items">
-        Ab chai bhi peeyenge saath ☕<br/>
-        fuchka bhi khayenge 🥟<br/>
-        aur tumhari dance bhi dekhenge 💃
-      </div>
-      <div class="s-note" style="margin-top:4px">
-        Waada hai — aage se hamesha<br/>dhyan rakhunga. 🌸
+      <div class="s-sub">
+        Tum bahut achhi ho... ❤️<br/>
+        Waada hai — ab dhyan rakhunga. 🌸
       </div>
     </div>
   </div>
-
 </div>
 
 <script>
@@ -323,13 +247,11 @@
   function runAway(){
     attempts++;
     document.getElementById('sorryText').textContent=sorryTexts[Math.min(attempts,sorryTexts.length-1)];
-    const cw=container.offsetWidth, ch=container.offsetHeight;
-    const bw=noBtn.offsetWidth, bh=noBtn.offsetHeight;
-    const maxX=Math.max(cw-bw-8,4), maxY=Math.max(ch-bh-4,0);
-    noBtn.style.bottom='auto';
-    noBtn.style.transform='none';
-    noBtn.style.left=(4+Math.random()*maxX)+'px';
-    noBtn.style.top=(Math.random()*maxY)+'px';
+    const cw=container.offsetWidth,ch=container.offsetHeight;
+    const bw=noBtn.offsetWidth,bh=noBtn.offsetHeight;
+    noBtn.style.bottom='auto';noBtn.style.transform='none';
+    noBtn.style.left=(4+Math.random()*Math.max(cw-bw-8,4))+'px';
+    noBtn.style.top=(Math.random()*Math.max(ch-bh-4,0))+'px';
   }
 
   noBtn.addEventListener('mouseenter',runAway);
